@@ -1,0 +1,30 @@
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.2em 1em;
+}
+
+input {
+    padding: 0.5em;  
+    height: 1em;              
+}
+
+label {
+    margin-top: 0.5em;
+}
+
+textarea {
+    height: 10em;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+div a {
+    display: inline-block;
+    align-self: end;
+    margin: 0.3em 0 0 0;
+    font-size: 0.8em;
+}

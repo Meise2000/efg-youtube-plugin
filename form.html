@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Form for upload videos</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>Form for upload videos</h1>
+    
+    <efg-dialog>
+        <template shadowrootmode="open">
+            <link rel="stylesheet" href="form.css">
+            <form>
+                <label for="title">Titel</label>
+                <label for="title_ir" dir="rtl" lang="ir">عنوان</label>
+                <input type="text" id="title" placeholder="Überschrift der Predigt">
+                <div>
+                    <input type="text" dir="rtl" id="title_ir" lang="ir">
+                    <a href="#">Titel übersetzen</a>
+                </div>
+
+                <label for="name">Sprecher</label>
+                <label for="title">Art (optional)</label>
+                <input type="text" list="speakers" id="name" placeholder="z.B. Rebecca B. oder Stephan H.">
+                <datalist id="speakers">
+                    <option value="Rebecca B.">
+                    <option value="Stephan H.">
+                </datalist>
+                <input type="text" id="title" placeholder="z.B. Taufgottesdienst etc.">
+
+                <label for="source">Bibeltext</label>
+                <label for="source_ir" dir="rtl" lang="ir">متن کتاب مقدس</label>
+                <input type="text" id="source" placeholder="z.B. Joh. 3,16">
+                <div>
+                    <input type="text" id="source_ir" dir="rtl" lang="ir">
+                    <a href="#">Bibeltext übersetzen</a>
+                </div>
+
+                <label for="desc">Beschreibung</label>
+                <label for="desc_ir" dir="rtl" lang="ir">شرح</label>
+                <textarea id="desc"></textarea>
+                <div>
+                    <textarea id="desc_ir" lang="ir" dir="rtl"></textarea>
+                    <a href="#">Beschreibung übersetzen</a>
+                </div>
+            </form>
+        </template>
+    </efg-dialog>
+</body>
+</html> 
