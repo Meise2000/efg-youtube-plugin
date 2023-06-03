@@ -8,7 +8,7 @@
 <body>
     <h1>Form for upload videos</h1>
     
-    <efg-dialog>
+    <efg-youtube-dialog>
         <template shadowrootmode="open">
             <link rel="stylesheet" href="form.css">
             <form>
@@ -17,24 +17,24 @@
                 <input type="text" id="title" placeholder="Überschrift der Predigt">
                 <div>
                     <input type="text" dir="rtl" id="title_ir" lang="ir">
-                    <a href="#">Titel übersetzen</a>
+                    <a href="#title">Titel übersetzen</a>
                 </div>
 
                 <label for="name">Sprecher</label>
-                <label for="title">Art (optional)</label>
+                <label for="type">Art (optional)</label>
                 <input type="text" list="speakers" id="name" placeholder="z.B. Rebecca B. oder Stephan H.">
                 <datalist id="speakers">
                     <option value="Rebecca B.">
                     <option value="Stephan H.">
                 </datalist>
-                <input type="text" id="title" placeholder="z.B. Taufgottesdienst etc.">
+                <input type="text" id="type" placeholder="z.B. Taufgottesdienst etc.">
 
                 <label for="source">Bibeltext</label>
                 <label for="source_ir" dir="rtl" lang="ir">متن کتاب مقدس</label>
                 <input type="text" id="source" placeholder="z.B. Joh. 3,16">
                 <div>
                     <input type="text" id="source_ir" dir="rtl" lang="ir">
-                    <a href="#">Bibeltext übersetzen</a>
+                    <a href="#source">Bibeltext übersetzen</a>
                 </div>
 
                 <label for="desc">Beschreibung</label>
@@ -42,10 +42,23 @@
                 <textarea id="desc"></textarea>
                 <div>
                     <textarea id="desc_ir" lang="ir" dir="rtl"></textarea>
-                    <a href="#">Beschreibung übersetzen</a>
+                    <a href="#desc">Beschreibung übersetzen</a>
                 </div>
             </form>
         </template>
-    </efg-dialog>
+    </efg-youtube-dialog>
+    <main>
+        <div>
+            <label for="title">Youtube Titel</label>
+            <textarea type="text" id="title" disabled></textarea>
+            <button itemref="title">Titel kopieren</button>
+        </div>
+        <div>
+            <label for="desc">Youtube Beschreibung</label>
+            <textarea type="text" id="desc" disabled></textarea>
+            <button itemref="desc">Beschreibung kopieren</button>
+        </div>
+    </main>    
+    <script type="text/javascript" src="youtube.dialog.js"></script>
 </body>
-</html> 
+</html>  
