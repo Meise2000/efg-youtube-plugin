@@ -1,7 +1,7 @@
 use Test::More tests => 23;
 
 use lib '.'; 
-require 'jsonconverter.pm';
+require '../src/jsonconverter.pm';
 
 # null values
 is(jsonconverter::toJson(), 'null', "no param should be 'null'");

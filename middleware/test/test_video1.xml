@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="dont care"/>
+ <id>dont care</id>
+ <yt:playlistId>dont care</yt:playlistId>
+ <yt:channelId>dont care</yt:channelId>
+ <title>dont care</title>
+ <author>
+  <name>dont care</name>
+  <uri>dont care</uri>
+ </author>
+ <published>dont care</published>
+ <entry>
+  <id>dont care</id>
+  <yt:videoId>MY-ID</yt:videoId>
+  <yt:channelId>dont care</yt:channelId>
+  <title>Gegenstand der Passion | Stephan H. | Johannes 19</title>
+  <link rel="alternate" href="dont care"/>
+  <author>
+   <name>dont care</name>
+   <uri>dont care</uri>
+  </author>
+  <published>2023-04-02T21:36:05+00:00</published>
+  <updated>dont care</updated>
+  <media:group>
+   <media:title>dont care</media:title>
+   <media:content url="dont care" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="dont care" width="480" height="360"/>
+   <media:description>🇩🇪
+Pommes
+🇮🇷
+موضوع اشتیاق
+🇮🇷
+یوحنا 19 |  سیب زمینی سرخ کرده</media:description>
+   <media:community>
+    <media:starRating count="5" average="5.00" min="1" max="5"/>
+    <media:statistics views="77"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>
