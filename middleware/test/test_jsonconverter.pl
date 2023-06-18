@@ -26,7 +26,7 @@ is(jsonconverter::toJson('Po"mm"es'), '"Po\\"mm\\"es"', "A string with many doub
 is(jsonconverter::toJson([1,2,3]), '[1,2,3]', "a numeric array should be unquoted");
 is(jsonconverter::toJson([undef,undef]), '[null,null]', "a null array should be unquoted");
 is(jsonconverter::toJson(['true','false']), '[true,false]', "a boolean array should be unquoted");
-is(jsonconverter::toJson(["Pommes","Ma\"jo"]), '["Pommes","Ma\\"jo"]', "a string array should be quoted corretly");
+is(jsonconverter::toJson(["Pommes","Ma\"jo"]), '["Pommes","Ma\\"jo"]', "a string array should be quoted correctly");
 is(jsonconverter::toJson([1,'true',"Pommes",undef]), '[1,true,"Pommes",null]', "a mixed array should be quoted for strings only");
 
 # hash values

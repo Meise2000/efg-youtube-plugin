@@ -10,7 +10,7 @@ class YoutubeDialog extends HTMLElement {
 
     connectedCallback() {
         this.#shadow.innerHTML = `
-        <link rel="stylesheet" href="form.css">
+        <link rel="stylesheet" href="../src/form.css">
         <form>
             <label for="title">Titel</label>
             <label for="title_ir" dir="rtl" lang="ir">عنوان</label>
@@ -99,24 +99,3 @@ class YoutubeDialog extends HTMLElement {
 }
 
 customElements.define("efg-youtube-dialog", YoutubeDialog);
-
-function updateData(e) {
-    const title = document.querySelector('#title');
-    title.value = e.detail.title;
-    const desc = document.querySelector('#desc');
-    desc.value = e.detail.desc;
-}
-
-function copy(e) {
-    const target = e.target;
-    const ref = target.getAttribute('itemref');
-    const input = document.querySelector('#' + ref);
-    input.disabled = false;
-    input.select();
-    document.execCommand('copy');
-    input.setSelectionRange(0, 0);
-    input.disabled = true;
-}
-
-document.querySelector('body').addEventListener('youtube-values', (e) => updateData(e));
-document.querySelectorAll('button').forEach(button => button.addEventListener('click', (e) => copy(e)));
