@@ -1,5 +1,9 @@
 package youtubeparser;
 
+use XML::Parser;
+use DateTime;
+use utf8;
+
 #-----------------------------------------------------------------------------------------------
 # Global elements ... 
 #-----------------------------------------------------------------------------------------------
@@ -33,7 +37,7 @@ sub _handleStartTag {
     if ($tag eq 'entry') {
         $current = {};
         push(@$all, $current);
-    } elsif ($tag eq 'id' || $tag eq 'title' || $tag eq 'published' || $tag eq 'media:description') {
+    } elsif ($tag eq 'yt:videoId' || $tag eq 'title' || $tag eq 'published' || $tag eq 'media:description') {
         $element = $tag;
     } else {
         $element = undef;
@@ -81,15 +85,27 @@ sub _convert {
             $item->{'de'}->{'source'} = $source;
         }
         $item->{'streamed'} = _findStreamingDate($_->{'published'});
-        if ($_->{'media:description'} =~ m/^🇩🇪\n([^🇮🇷]+)(🇮🇷\n(.+))?/g) {
+        if ($_->{'media:description'} =~ m/^🇩🇪\n([^🇮🇷]+)🇮🇷\n([^🇮🇷]+)🇮🇷\n(.+)$/) {
             my $description = $1;
             my $descriptionIr = $2;
+            my ($sourceIr, $titleIr) = split(' \| ', $3);
             $description =~ s/\n//g;
             $item->{'de'}->{'desc'} = $description;
 
-            $descriptionIr =~ s/\n//g;
-            $item->{'ir'} = { 'desc' => $descriptionIr };
+            if ($descriptionIr) {
+                $descriptionIr =~ s/\n//g;
+                $item->{'ir'} = { 'desc' => $descriptionIr };
+            }
+            if ($titleIr) {
+                if (!$item->{'ir'}) {
+                    $item->{'ir'} = {};
+                }
+                $titleIr =~ s/\n//g;
+                $item->{'ir'}->{'title'} = $titleIr;
+                $item->{'ir'}->{'source'} = $sourceIr;
+            }
         } 
+        $item->{'id'} = $_->{'yt:videoId'};
         push(@$res, $item);
     }
     return sort {$b->{'streamed'} <=> $a->{'streamed'}} @$res;
