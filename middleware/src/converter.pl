@@ -8,10 +8,13 @@ use lib '.';
 require "jsonconverter.pm";
 require "youtubeparser.pm";
 
-my $videos = youtubeparser::parse('../test/videos.xml');
+my $source = $ARGV[0]; 
+my $target = $ARGV[1];
+
+my $videos = youtubeparser::parse($source);
 my $json = jsonconverter::toJson($videos);
 
-open (FILE, ">all.json") || die "$!";
+open (FILE, ">$target") || die "$!";
 binmode(FILE, ":utf8");
 print FILE $json;
 close(FILE);
